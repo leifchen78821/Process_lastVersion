@@ -21,7 +21,7 @@ class upload_con extends Controller{
                 $_SESSION['title'] = $_POST["title"] ;
                 $_SESSION['article'] = $_POST["article"] ;
                 
-                move_uploaded_file($_FILES["file"]["tmp_name"],"../upload/".$_FILES["file"]["name"]);
+                move_uploaded_file($_FILES["file"]["tmp_name"] , "./views/upload/" . $_FILES["file"]["name"]);
             	header("Location: ../upload_preview/upload_preview");
             	exit();
             }
