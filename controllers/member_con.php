@@ -25,7 +25,7 @@ class member_con extends Controller{
 			
 			if (isset($_POST["button_changePassword"]))
 			{
-				header("Location: ../changepassword/changepassword");
+				header("Location: ../changepassword_check/changepassword_check");
 				exit();
 			}
 			
