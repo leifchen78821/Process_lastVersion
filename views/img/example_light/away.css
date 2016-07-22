@@ -1,0 +1,38 @@
+@charset "utf-8";
+/*=================================
+CSS Play
+October 2012
+By : Away
+http://www.dfuns.idv.tw
+http://away.myds.me/wordpress
+=================================*/
+
+body{ background:url(images/body.gif); margin:0; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+
+
+.wrapper{ width:960px; margin:auto; background:url(images/main.gif); position:relative; overflow:hidden; box-shadow:0 0 5px #000; border-radius:7px; margin-top:50px;}
+.hdr{
+	text-align:center; color:#444; font-size:5em; margin:0 0 580px;
+	text-shadow:-1px -1px #000;
+}
+
+.adv{
+	overflow:hidden; width:760px; padding:60px;border: 1px solid #333;border-width: 1px 0; border-radius:3px; background:url(images/body.gif); position:absolute; top:110px;left:40px;
+}
+	
+.slider{ float:left; width:190px; height:470px; position:relative; overflow:hidden;}
+.light, .title{ display:block; background:#000; width:100%; position:absolute;}
+
+.light{
+	height:100%; top:0; opacity:.4;
+}
+
+.title{
+	height:50%; position:absolute; bottom:0; color:#FFF; opacity:.7; text-align:center; padding-top:.5em;
+}
+
+.slider:hover .light{ opacity:0;}
+.slider:hover .title{ bottom:-43%;}
+
+footer{ padding:2.5em 1em 1em; text-align:center; color:#FFF; opacity:.3;}
+
