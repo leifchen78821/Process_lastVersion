@@ -11,9 +11,17 @@ class member_con extends Controller{
 		else {
 			header("Content-Type:text/html; charset=utf-8");
 			session_start();
-			// $memberNum = $_GET["choose"];
+			$_SESSION['change'] = 0 ; //確認修改文章是否進入過
+			$member = $this->model("member_mod");
 			
-			// require("../models/member_mod.php");
+            $memberDataResult = $member->memberData($_COOKIE["userName"]);
+            $data[0] = mysql_fetch_assoc($memberDataResult);
+			
+			$memberArticleResult = $member->memberArticle($_COOKIE["userName"]);
+            $data[1] = $memberArticleResult;
+            
+            $memberMessageResult = $member->memberMessage($_COOKIE["userName"]);
+            $data[2] = $memberMessageResult;
 			
 			if (isset($_POST["button_changePassword"]))
 			{
@@ -23,12 +31,14 @@ class member_con extends Controller{
 			
 			if(isset($_GET["delete"])) {
 			// require("../models/member_mod_deletearticle.php");
+			$member = $this->model("member_deletearticle_mod");
+            $memberDataResult = $member->member_deletearticle($_GET["delete"]);
 			echo "<script language='JavaScript'>";
-			echo "alert('刪除成功!!!');location.href='../member/?choose=2';";
+			echo "alert('刪除成功!!!');location.href='../member/member?choose=2';";
 			echo "</script>";
 			}
 		} 
-		$this->view("member");
+		$this->view("member",$data);
 	}
 }
 ?>

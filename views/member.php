@@ -13,7 +13,7 @@
                     </li>
                     <li><a href="../page_food/page_food">食</a>
                     </li>
-                    <li><a href="../page_dress/page_food">衣</a>
+                    <li><a href="../page_dress/page_dress">衣</a>
                     </li>
                     <li><a onclick="return confirm('即將外連至其他網頁，是否確認前往?');" href="http://www.trivago.com.tw/?cpt=324044602&r=&iRoomType=7&aHotelTestClassifier=&iIncludeAll=0&iGeoDistanceLimit=20000&aPartner=&iGeoDistanceItem=3240446&iPathId=408051&aDateRange%5Barr%5D=2016-07-24&aDateRange%5Bdep%5D=2016-07-25&iViewType=0&bIsSeoPage=false&bIsSitemap=false&">住</a>
                     </li>
@@ -38,25 +38,25 @@
             <img class = "front_pic_member" src="../views/img/member01.png">
             <div id = "member01" style = "background-image: url(../views/img/memberback.png);">
                 <div id = "member01_1">
-                    帳號 : <?php echo $row01["Name"] ?><br><br>
+                    帳號 : <?php echo $data[0]["Name"] ?><br><br>
                     <form data-ajax="false" id="form1" name="form1" method="post">密碼 :　
                                 <input type="submit" name="button_changePassword" id="button_changePassword" value="修改密碼" />
                            </form>
-                    性別 : <?php if($row01["Gender"] == 1) : ?>
+                    性別 : <?php if($data[0]["Gender"] == 1) : ?>
                             紳士
                            <?php else : ?>
                             淑女
                            <?php endif ?>
                             <br><br>
-                    電話 : <?php echo $row01["PhoneNumber"] ?><br>
+                    電話 : <?php echo $data[0]["PhoneNumber"] ?><br>
                 </div>
             </div>
             <?php elseif($_GET["choose"] == "2"): ?>
-            <img class = "front_pic_member" src="img/member02.png">
-            <div id = "member02" style = "background-image: url(img/memberback.png);">
+            <img class = "front_pic_member" src="../views/img/member02.png">
+            <div id = "member02" style = "background-image: url(../views/img/memberback.png);">
                 <div id = "member02_1">
                     <div style="clear:both;"></div>
-                    <?php while($row02 = mysql_fetch_assoc($result02)) : ?>
+                    <?php while($row02 = mysql_fetch_assoc($data[1])) : ?>
                     <div style = "width:100% ; border-bottom: 2px solid gray ; border-radius:5%; float:left ;">
                         <br>
                         發布時間 : <?php echo $row02["Time"] ?><br>
@@ -67,34 +67,37 @@
                                <?php endif ?><br>
                         標題 : <?php echo $row02["Title"] ?><br>
                         <br>
-                        <a href = "article.php?ArticleID=<?php echo $row02["uID"]?>"><div id = "pic_go"><img src="img/go.gif" width="100" >前去看看</div></a>
-                        <a href = "update.php?ArticleID=<?php echo $row02["uID"]?>"><div id = "pic_go"><img src="img/changearticle.gif" width="100"  >修改文章</div></a>
-                        <div id = "pic_go"><button id = "deletebut" name = "deletebut" type = "button" onclick = "click_delete(<?php echo $row02["uID"] ?>)"><img src="img/delete.gif" width="100"  >刪除文章</button></div>
+                        <a href = "../article/article?ArticleID=<?php echo $row02["uID"]?>"><div id = "pic_go"><img src="../views/img/go.gif" width="100" >前去看看</div></a>
+                        <a href = "../update/update?ArticleID=<?php echo $row02["uID"]?>"><div id = "pic_go"><img src="../views/img/changearticle.gif" width="100"  >修改文章</div></a>
+                        <div id = "pic_go"><button id = "deletebut" name = "deletebut" type = "button" onclick = "click_delete(<?php echo $row02["uID"] ?>)"><img src="../views/img/delete.gif" width="100"  >刪除文章</button></div>
                     </div>
                     <?php endwhile ?>
                     <div style="clear:both;"></div>
                 </div>
             </div>
             <?php else: ?>
-            <img class = "front_pic_member" src="img/member03.png">
-                    <div id = "member03" style = "background-image: url(img/memberback.png);">
+            <img class = "front_pic_member" src="../views/img/member03.png">
+                    <div id = "member03" style = "background-image: url(../views/img/memberback.png);">
                 <div id = "member03_1">
                     <div style="clear:both;"></div>
-                    <?php for($j = 0 ; $j < $i ; $j++) : ?>
+                    <!--利用$i來進行陣列遞增判定-->
+                    <?php $i = 0 ;?> 
+                    <?php while($data[2][$i] != '') : ?>
                     <div style = "width:100% ; border-bottom: 2px solid gray ; border-radius:5%; float:left ;">
                         <br>
-                        發布時間 : <?php echo $message03[$j][0] ?><br>
-                        版別 : <?php if($message03[$j][4] == "food") : ?>
+                        發布時間 : <?php echo $data[2][$i][0] ?><br>
+                        版別 : <?php if($data[2][$i][4] == "food") : ?>
                                 食
                                <?php else : ?>
                                 衣
                                <?php endif ?><br>
-                        留言文章 : <?php echo $message03[$j][3] ?><br>
-                        留言內容 : <?php echo $message03[$j][2] ?><br>
+                        留言文章 : <?php echo $data[2][$i][3] ?><br>
+                        留言內容 : <?php echo $data[2][$i][2] ?><br>
                         <br>
-                        <a href = "article.php?ArticleID=<?php echo $message03[$j][1]?>"><div id = "pic_go"><img src="img/go.gif">前去看看</div></a>
+                        <a href = "../article/article?ArticleID=<?php echo $data[2][$i][1] ?>"><div id = "pic_go"><img src="../views/img/go.gif">前去看看</div></a>
                     </div>
-                    <?php endfor ?>
+                    <?php $i++ ;?>
+                    <?php endwhile ?>
                     <div style="clear:both;"></div>
                 </div>
             </div>
@@ -103,7 +106,7 @@
             <script>
                 function click_delete(id) {
                     if(confirm('確定刪除?(資料將無法回復)')) {
-                        location.href = 'member.php?choose=2&delete=' + id ;
+                        location.href = '../member/member?choose=2&delete=' + id ;
                     }
                 }
             </script>
