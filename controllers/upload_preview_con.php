@@ -19,9 +19,8 @@ class upload_preview_con extends Controller{
 				exit();
 			}
 			if (isset($_POST["button_send"])) {
-			    // require("../models/upload_preview_mod_send.php");
 			    $articleSend = $this->model("upload_preview_send_mod");
-        		$articleSend->upload_preview_send($_SESSION['Name']);
+        		$articleSend->upload_preview_send($_SESSION['Name'],$_SESSION['state'],$resultArticleNumGet,$_SESSION['title'],$_SESSION['article'],$_SESSION['image'],$_SESSION['source'],$_SESSION['address_X'],$_SESSION['address_Y']);
 				
 				if ($_SESSION['state'] == "food") {
 					header("Location: ../page_food/page_food");

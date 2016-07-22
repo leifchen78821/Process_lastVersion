@@ -24,11 +24,11 @@
             <?php else: ?>
             <li><p>　會員專區　</p>
                 <ul>
-                    <li><a href="member.php?choose=1">帳號管理</a>
+                    <li><a href="../member/member?choose=1">帳號管理</a>
                     </li>
-                    <li><a href="member.php?choose=2">文章管理</a>
+                    <li><a href="../member/member?choose=2">文章管理</a>
                     </li>
-                    <li><a href="member.php?choose=3">留言管理</a>
+                    <li><a href="../member/member?choose=3">留言管理</a>
                     </li>
                 </ul>
             </li>
