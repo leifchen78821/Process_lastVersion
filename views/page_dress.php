@@ -39,7 +39,7 @@
                 <?php if ($data[0] == "訪客"): ?>
                     <span style="" align="center" valign="baseline"><a href="../login/login">不是訪客? 點此登入<br></a>
                 <?php else: ?>
-                    <span style="" valign="baseline"><a href="../pagefood/pagefood?logout=1">登出<br></a>
+                    <span style="" valign="baseline"><a href="../page_dress/page_dress?logout=1">登出<br></a>
                 <?php endif; ?>
             </p>
         </div>

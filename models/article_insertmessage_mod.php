@@ -17,7 +17,7 @@ class article_insertmessage_mod{
             				'{$aID}' , 
             				'{$Name}' , 
             				'{$time}' , 
-            				'{$Messs}' )";  
+            				'{$Mess}' )";  
         $result = mysql_query($insertMessage, $link);
     }
 }
