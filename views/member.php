@@ -56,7 +56,7 @@
             <div id = "member02" style = "background-image: url(../views/img/memberback.png);">
                 <div id = "member02_1">
                     <div style="clear:both;"></div>
-                    <?php while($row02 = mysql_fetch_assoc($data[1])) : ?>
+                    <?php foreach ($data[1] as $row02): ?>
                     <div style = "width:100% ; border-bottom: 2px solid gray ; border-radius:5%; float:left ;">
                         <br>
                         發布時間 : <?php echo $row02["Time"] ?><br>
@@ -71,7 +71,7 @@
                         <a href = "../update/update?ArticleID=<?php echo $row02["uID"]?>"><div id = "pic_go"><img src="../views/img/changearticle.gif" width="100"  >修改文章</div></a>
                         <div id = "pic_go"><button id = "deletebut" name = "deletebut" type = "button" onclick = "click_delete(<?php echo $row02["uID"] ?>)"><img src="../views/img/delete.gif" width="100"  >刪除文章</button></div>
                     </div>
-                    <?php endwhile ?>
+                    <?php endforeach ?>
                     <div style="clear:both;"></div>
                 </div>
             </div>
@@ -81,23 +81,22 @@
                 <div id = "member03_1">
                     <div style="clear:both;"></div>
                     <!--利用$i來進行陣列遞增判定-->
-                    <?php $i = 0 ;?> 
-                    <?php while($data[2][$i] != '') : ?>
+                    <?php foreach ($data[2] as $row03): ?>
                     <div style = "width:100% ; border-bottom: 2px solid gray ; border-radius:5%; float:left ;">
                         <br>
-                        發布時間 : <?php echo $data[2][$i][0] ?><br>
-                        版別 : <?php if($data[2][$i][4] == "food") : ?>
+                        發布時間 : <?php echo $row03[0] ?><br>
+                        版別 : <?php if($row03[4] == "food") : ?>
                                 食
                                <?php else : ?>
                                 衣
                                <?php endif ?><br>
-                        留言文章 : <?php echo $data[2][$i][3] ?><br>
-                        留言內容 : <?php echo $data[2][$i][2] ?><br>
+                        留言文章 : <?php echo $row03[3] ?><br>
+                        留言內容 : <?php echo $row03[2] ?><br>
                         <br>
-                        <a href = "../article/article?ArticleID=<?php echo $data[2][$i][1] ?>"><div id = "pic_go"><img src="../views/img/go.gif">前去看看</div></a>
+                        <a href = "../article/article?ArticleID=<?php echo $row03[1] ?>"><div id = "pic_go"><img src="../views/img/go.gif">前去看看</div></a>
                     </div>
                     <?php $i++ ;?>
-                    <?php endwhile ?>
+                    <?php endforeach ?>
                     <div style="clear:both;"></div>
                 </div>
             </div>

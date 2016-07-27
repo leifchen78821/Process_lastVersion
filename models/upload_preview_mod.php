@@ -9,7 +9,7 @@ class upload_preview_mod extends databasecalling_mod{
         $NameArticleNumber = 1 ;
         $Member = "select * from UploadFile where Name = '" . $Name . "' ;" ;
         $result = $this->databasecalling($Member) ;
-        while ($row = mysql_fetch_assoc($result)) {
+        foreach ($result as $rows) {
             $NameArticleNumber++;
         }
         return $NameArticleNumber ;

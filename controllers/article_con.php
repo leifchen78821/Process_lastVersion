@@ -7,7 +7,8 @@ class article_con extends Controller{
         
         $article = $this->model("article_mod");
         $resultArticle = $article->article($_GET["ArticleID"]);
-        $rowArticle = mysql_fetch_assoc($resultArticle);
+        // $rowArticle = mysql_fetch_assoc($resultArticle);
+
         $resultMessage = $article->message($_GET["ArticleID"]);
         // $rowMessage = mysql_fetch_assoc($resultMessage);
         
@@ -39,7 +40,7 @@ class article_con extends Controller{
             }
         }
         $data[0] = $sUserName;
-        $data[1] = $rowArticle ;
+        $data[1] = $resultArticle ;
         $data[2] = $resultMessage ;
         $this->view("article",$data);
     }

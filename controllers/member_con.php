@@ -15,7 +15,7 @@ class member_con extends Controller{
 			$member = $this->model("member_mod");
 			
             $memberDataResult = $member->memberData($_COOKIE["userName"]);
-            $data[0] = mysql_fetch_assoc($memberDataResult);
+            $data[0] = $memberDataResult;
 			
 			$memberArticleResult = $member->memberArticle($_COOKIE["userName"]);
             $data[1] = $memberArticleResult;

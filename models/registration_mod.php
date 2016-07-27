@@ -8,9 +8,8 @@ class registration_mod extends databasecalling_mod{
         
         $commandText = "select mID from MemberProfile where Name = '" . $sUserName . "'";
         $memberresult = $this->databasecalling($commandText) ;
-        $row = mysql_fetch_assoc($memberresult);
         
-        if($row["mID"] != '') {
+        if($memberresult["mID"] != '') {
           $checknum = 1 ;
         }
         return $checknum ;

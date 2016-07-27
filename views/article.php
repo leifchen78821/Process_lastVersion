@@ -25,8 +25,8 @@
 	    <div><a href = "../page_<?php echo $_SESSION['state'] ;?>/page_<?php echo $_SESSION['state'] ;?>" data-ajax="false" ><img class = "lastpage" src="../views/img/lastpage.png"></a></div>
 		<!--讀取資料XY軸 暫存於此-->
 		<div id = "backnumber" style = "display:none;">
-			<textarea id = "address_X" name = "address_X"><?php echo $data[1]["Map_X"] ; ?></textarea>
-	        <textarea id = "address_Y" name = "address_Y"><?php echo $data[1]["Map_Y"] ; ?></textarea>
+			<textarea id = "address_X" name = "address_X"><?php echo $data[1][0]["Map_X"] ; ?></textarea>
+	        <textarea id = "address_Y" name = "address_Y"><?php echo $data[1][0]["Map_Y"] ; ?></textarea>
 		</div>
 		<div>
 	        <p align="right" style="color : black ; font-family:Microsoft JhengHei;"><?php echo "您好阿  " . $data[0] . "  大大<br>" ?>
@@ -40,25 +40,25 @@
 		<div id = "whiteback">
 			<div id = "background">
 		        <div id = "title">
-		            <?php echo $data[1]["Title"] ; ?>
+		            <?php echo $data[1][0]["Title"] ; ?>
 		        </div>
 		        <div id = "image">
-		            <?php if($data[1]["ImageSite"] != ''): ?>
-		            <img src="../views/upload/<?php echo $data[1]["ImageSite"] ?>">
+		            <?php if($data[1][0]["ImageSite"] != ''): ?>
+		            <img src="../views/upload/<?php echo $data[1][0]["ImageSite"] ?>">
 		            <?php endif ?>
 		        </div>
 		        <div id = "article_inside">
-		            <?php echo $data[1]["Article"] ; ?>
+		            <?php echo $data[1][0]["Article"] ; ?>
 		        </div>
 		        <div id = "map_address"><br><br><br>
 		        	<p class = "map_address_title">這地方在哪裡呢!!!?<br></p>
-		            <?php echo $data[1]["MapSite"] ; ?>
+		            <?php echo $data[1][0]["MapSite"] ; ?>
 		            <br><br><br><br><br>分享時間 : 
-		            <?php echo $data[1]["Time"] ?>
+		            <?php echo $data[1][0]["Time"] ?>
 		            <br><br>發文者 : 
-		            <?php echo $data[1]["Name"] ?>
+		            <?php echo $data[1][0]["Name"] ?>
 		        </div>
-	        	<?php if($data[1]["MapSite"] != ""): ?>
+	        	<?php if($data[1][0]["MapSite"] != ""): ?>
 	            <div id="googleMap" style="width: 50%; height: 400px; margin: 0 5% 10% 5%;"></div>
 	            <?php endif ?>
 		    </div>
@@ -71,23 +71,23 @@
 			    	</div>	
 		    	</form>
 		    </div>
-		    
-		    <?php while ($MessageRow = mysql_fetch_assoc($data[2])): ?>
+		   
+		    <?php foreach ($data[2] as $rows): ?>
 			<div class = "message">
 				<div style = "margin:5px auto;">
 		            <div style= "float: left ; font-size:20px" >
-		            	<span>　　</sapn><?php echo $MessageRow["Name"] ;?> <span>　在　</spane>
+		            	<span>　　</sapn><?php echo $rows["Name"] ;?> <span>　在　</spane>
 		            </div>
 		            <div style= "float: left ; font-size:20px">
-		            	<?php echo $MessageRow["Time"] ;?> <span>　時說...</span>
+		            	<?php echo $rows["Time"] ;?> <span>　時說...</span>
 		            </div>
 	            </div>
 	            <br><br>
 	            <div style="margin: 0 0 0 5% ; font-size:25px">
-	            	<?php echo $MessageRow["MessageSent"] ;?>
+	            	<?php echo $rows["MessageSent"] ;?>
 	            </div>
 	        </div>
-	        <?php endwhile ?>
+	        <?php endforeach ?>
 		</div>
 	</body>
 </html>

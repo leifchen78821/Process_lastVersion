@@ -55,19 +55,20 @@
         </div>
         
         <div id = "page_index">
-            
-            <?php while ($row = mysql_fetch_assoc($data[1])): ?>
-            <a href = "../article/article?ArticleID=<?php echo $row["uID"]?>">
+
+            <?php foreach ($data[1] as $rows): ?>
+            <a href = "../article/article?ArticleID=<?php echo $rows["uID"]?>">
                 <div class="portfolio-box portfolio-box-container content_box">
-                    <?php if( $row["ImageSite"] != '' ): ?>
-                	<img src="../views/upload/<?php echo $row["ImageSite"] ?>" style="width:300px">
+                    <?php if( $rows["ImageSite"] != '' ): ?>
+                	<img src="../views/upload/<?php echo $rows["ImageSite"] ?>" style="width:300px">
                 	<?php else: ?>
                 	<img src="../views/img/dress_front.png" style="width:300px">
                 	<?php endif ?>
-                	 <h3><?php echo $row["Title"] ?></h3>
-                	 <p><?php echo mb_substr( $row["Article"],0,50,"utf-8"); ?>...</p>
+                	 <h3><?php echo $rows["Title"] ?></h3>
+                	 <p><?php echo mb_substr( $rows["Article"],0,50,"utf-8"); ?>...</p>
                 </div>
-            <?php endwhile ?>
+
+            <?php endforeach ?>
         </div>
     </body>
 </html>

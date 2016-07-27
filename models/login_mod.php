@@ -9,9 +9,8 @@ class login_mod extends databasecalling_mod{
         
         $commandText = "select mID from MemberProfile where Name = '" . $sUserName . "' AND Password = '" . $sUserPassword . "';";
         $result = $this->databasecalling($commandText) ;
-        $row = mysql_fetch_assoc($result);
         
-        if($row["mID"] != '') {
+        if($result[0]["mID"] != '') {
             setcookie("userName" , "$sUserName" , time()+7200 , "/");
             $check = 1 ;
         }

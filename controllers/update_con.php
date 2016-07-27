@@ -19,7 +19,7 @@ class update_con extends Controller{
             $articleGet = $this->model("update_mod");
         	$resultArticleGet = $articleGet->update($_SESSION['uID']);
         	
-        	$row = mysql_fetch_assoc($resultArticleGet);
+        	$row = $resultArticleGet[0];
         
             $_SESSION['image'] = $row["ImageSite"] ;
             
