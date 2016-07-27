@@ -1,12 +1,9 @@
 <?php
+require_once("databasecalling_mod.php");
 
-class update_preview_mod{
+class update_preview_mod extends databasecalling_mod{
 
     function update_preview($uID,$source,$address_X,$address_Y,$image,$title,$article) {
-		$link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ; 
-		$result = mysql_query("set names utf8" , $link);
-		mysql_selectdb("monographic",$link); 
-		
 		date_default_timezone_set('Asia/Taipei');
 		$time = date("Y-m-d H:i:s") ;
 		
@@ -20,7 +17,7 @@ class update_preview_mod{
 						Article = '{$article}'
 						WHERE uID = '{$uID}' ";  
 							
-		$result = mysql_query($updateData, $link);
+		$result = $this->databasecalling($updateData) ;
 	}
 }
 ?>

@@ -1,11 +1,9 @@
 <?php
-class article_insertmessage_mod{
+require_once("databasecalling_mod.php");
+
+class article_insertmessage_mod extends databasecalling_mod{
 
     function article_insertmessage($aID,$Name,$Mess) {
-        $link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ; 
-        $result = mysql_query("set names utf8" , $link);
-        mysql_selectdb("monographic",$link); 
-        
         date_default_timezone_set('Asia/Taipei');
         $time = date("Y-m-d H:i:s") ;
         $insertMessage ="INSERT INTO Message (
@@ -18,7 +16,7 @@ class article_insertmessage_mod{
             				'{$Name}' , 
             				'{$time}' , 
             				'{$Mess}' )";  
-        $result = mysql_query($insertMessage, $link);
+        $result = $this->databasecalling($insertMessage) ;
     }
 }
 ?>

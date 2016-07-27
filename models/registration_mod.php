@@ -1,15 +1,13 @@
 <?php
-class registration_mod{
+require_once("databasecalling_mod.php");
+
+class registration_mod extends databasecalling_mod{
     function registration_check($sUserName) {
         
         $checknum = 0 ;
         
-        $link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ; 
-        $result = mysql_query("set names utf8" , $link);
-        mysql_selectdb("monographic",$link);  
-        
         $commandText = "select mID from MemberProfile where Name = '" . $sUserName . "'";
-        $memberresult = mysql_query($commandText, $link);
+        $memberresult = $this->databasecalling($commandText) ;
         $row = mysql_fetch_assoc($memberresult);
         
         if($row["mID"] != '') {
@@ -19,10 +17,6 @@ class registration_mod{
     }
     
     function registration_write($sUserName,$sUserPassword) {
-        $link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ; 
-        $result = mysql_query("set names utf8" , $link);
-        mysql_selectdb("monographic",$link); 
-        
         $insertData ="INSERT INTO MemberProfile (
                         Name,
                         Password,
@@ -33,7 +27,7 @@ class registration_mod{
                         '{$_POST[txtPassword]}' , 
                         '{$_POST[txtGender]}' , 
                         '{$_POST[txtPhoneNumber]}' )";  
-        $result = mysql_query($insertData, $link);
+        $result = $this->databasecalling($insertData) ;
     }
 }
 ?>

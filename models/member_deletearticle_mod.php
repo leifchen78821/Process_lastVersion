@@ -1,15 +1,11 @@
 <?php
+require_once("databasecalling_mod.php");
 
-class member_deletearticle_mod{
+class member_deletearticle_mod extends databasecalling_mod{
 
     function member_deletearticle($delete) {
-
-        $link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ; 
-        $result = mysql_query("set names utf8" , $link);
-        mysql_selectdb("monographic",$link); 
-        
         $deletedata = "DELETE FROM UploadFile WHERE uID = " . $delete . " ; " ;
-        $result = mysql_query($deletedata, $link);
+        $result = $this->databasecalling($deletedata) ;
     }
     
 }
