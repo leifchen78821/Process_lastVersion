@@ -5,6 +5,10 @@ class App {
     public function __construct() {
         $url = $this->parseUrl();
         
+        if(is_null($url)){
+            header("Location: ../_Feng_Chia_Web_EasyMVC/index/index");
+        }
+        
         $controllerName = "{$url[0]}_con";
         if (!file_exists("controllers/$controllerName.php"))
             return;
