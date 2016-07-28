@@ -7,7 +7,7 @@ if($data[3] == "errorin") {
 }
 elseif($data[3] == "delete") {
     echo "<script language='JavaScript'>";
-    echo "alert('你不應該來這呦!!!');location.href='../connect4site/connect4site';";
+    echo "alert('刪除成功!!!');location.href='../member/member?choose=2'";
     echo "</script>";
 }
 ?>

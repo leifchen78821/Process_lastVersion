@@ -27,7 +27,7 @@ class registration_con extends Controller{
             $data[0] = "sernameused" ;
           }
           else {
-            $member->registration_write($sUserName,$sUserPassword);
+            $member->registration_write($sUserName,$sUserPassword,$_POST["txtGender"],$_POST["txtPhoneNumber"]);
             $data[0] = "registrationsuccess" ;
           }
         }
