@@ -3,9 +3,7 @@ class update_con extends Controller{
     
     function update() {
         if ($_COOKIE["userName"] == "Guest") {
-        	echo "<script language='JavaScript'>";
-        	echo "alert('你不應該來這呦!!!');location.href='../index/index';";
-        	echo "</script>";
+        	$data[0] = "errorin" ;
         }
         else {
             header("Content-Type:text/html; charset=utf-8");
@@ -57,7 +55,7 @@ class update_con extends Controller{
             	session_destroy();
             }
         }
-        $this->view("update");
+        $this->view("update",$data);
     }
     
 }

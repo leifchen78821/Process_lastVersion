@@ -1,3 +1,12 @@
+<?php
+
+if($data[0] == "errorin") {
+  echo "<script language='JavaScript'>";
+  echo "alert('帳號或密碼輸入有誤');";
+  echo "</script>";
+}
+
+?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

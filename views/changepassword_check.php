@@ -1,3 +1,21 @@
+<?php
+
+if($data[0] == "errorin") {
+  echo "<script language='JavaScript'>";
+	echo "alert('你不應該來這呦!!!');location.href='../connect4site/connect4site';";
+	echo "</script>";
+}
+elseif($data[0] == "notYou") {
+  echo "<script language='JavaScript'>";
+  echo "alert('您輸入的帳號不是你的呦');";
+  echo "</script>";
+}
+elseif($data[0] == "wrongPassword") {
+  echo "<script language='JavaScript'>";
+  echo "alert('密碼輸入有誤');";
+  echo "</script>";
+}
+?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

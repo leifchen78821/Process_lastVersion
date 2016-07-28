@@ -3,9 +3,7 @@ class upload_con extends Controller{
     
     function upload() {
         if ($_COOKIE["userName"] == "Guest") {
-        	echo "<script language='JavaScript'>";
-        	echo "alert('你不應該來這呦!!!');location.href='../index/index';";
-        	echo "</script>";
+        	$data[0] = "errorin" ;
         }
         else {
             session_start();
@@ -38,7 +36,7 @@ class upload_con extends Controller{
             	}
             }
         }
-        $this->view("upload");
+        $this->view("upload",$data);
     }
 }
 ?>

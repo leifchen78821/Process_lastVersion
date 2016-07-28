@@ -26,9 +26,7 @@ class page_dress_con extends Controller{
         
         if (isset($_POST["IssuedArticle"])) {
             if ($_COOKIE["userName"] == "Guest") {
-                echo "<script language='JavaScript'>";
-                echo "alert('您尚未登入無法發文呦')";
-                echo "</script>";
+                $data[2] = "notmember" ;
             }
             else {
                 header("Location: ../upload/upload");

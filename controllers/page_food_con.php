@@ -26,9 +26,7 @@ class page_food_con extends Controller{
         
         if (isset($_POST["IssuedArticle"])) {
             if ($_COOKIE["userName"] == "Guest") {
-                echo "<script language='JavaScript'>";
-                echo "alert('您尚未登入無法發文呦')";
-                echo "</script>";
+                $data[2] = "notmember" ;
             }
             else {
                 header("Location: ../upload/upload");
@@ -41,7 +39,7 @@ class page_food_con extends Controller{
         
         $data[0] = $sUserName;
         $data[1] = $result ;
-        $data[2] = $friendlist;
+        $data[3] = $friendlist;
         $this->view("page_food",$data);
     }
 }

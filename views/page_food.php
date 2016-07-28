@@ -1,3 +1,12 @@
+<?php
+
+if($data[2] == "notmember") {
+    echo "<script language='JavaScript'>";
+    echo "alert('您尚未登入無法發文呦')";
+    echo "</script>";
+}
+
+?>
 <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -56,7 +65,7 @@
                             </li>
                             <li><a href="../member/member?choose=3">好友列表</a>
                                 <ul style = "height:400px;overflow:auto;">
-                                    <?php foreach($data[2] as $friendsrows): ?>
+                                    <?php foreach($data[3] as $friendsrows): ?>
                                     <li>
                                         <a><?php echo $friendsrows["Name"] ;?></a>
                                     </li>

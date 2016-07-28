@@ -4,9 +4,7 @@ class changepassword_check_con extends Controller{
     function changepassword_check() {
         
         if ($_COOKIE["userName"] == "Guest") {
-        	echo "<script language='JavaScript'>";
-        	echo "alert('你不應該來這呦!!!');location.href='../connect4site/connect4site';";
-        	echo "</script>";
+        	$data[0] = "errorin" ;
         }
         else {
             header("Content-Type:text/html; charset=utf-8");
@@ -16,9 +14,7 @@ class changepassword_check_con extends Controller{
                 $sUserPassword = $_POST["txtPassword"];
                 
                 if($_COOKIE["userName"] != $sUserName) {
-                    echo "<script language='JavaScript'>";
-                    echo "alert('您輸入的帳號不是你的呦');";
-                    echo "</script>";
+                    $data[0] = "notYou" ;
                 }
                 else {
                     // 驗證方法同登入驗證
@@ -26,9 +22,7 @@ class changepassword_check_con extends Controller{
                     $check = $member->login($sUserName,$sUserPassword);
                     
                     if($check != 1) {
-                        echo "<script language='JavaScript'>";
-                        echo "alert('密碼輸入有誤');";
-                        echo "</script>";
+                        $data[0] = "wrongPassword" ;
                     }
                     else {
                         header("Location: ../changepassword_change/changepassword_change");
@@ -36,7 +30,7 @@ class changepassword_check_con extends Controller{
                 }
             }
         }
-        $this->view("changepassword_check");
+        $this->view("changepassword_check",$data);
     
     }
     

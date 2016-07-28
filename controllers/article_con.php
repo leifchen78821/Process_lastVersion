@@ -27,9 +27,7 @@ class article_con extends Controller{
         
         if (isset($_POST["send_message"])) {
             if ($_COOKIE["userName"] == "Guest") {
-                echo "<script language='JavaScript'>";
-                echo "alert('您尚未登入無法留言呦')";
-                echo "</script>";
+                $data[3] = "notmember" ;
             }
             else {
                 // require("../models/article_mod_insertmessage.php");

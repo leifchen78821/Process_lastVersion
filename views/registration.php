@@ -1,3 +1,32 @@
+<?php
+
+if($data[0] == "usernameempty") {
+    echo "<script language='JavaScript'>";
+    echo "alert('帳號不可空白')";
+    echo "</script>";
+}
+elseif($data[0] == "passwordempty") {
+    echo "<script language='JavaScript'>";
+    echo "alert('密碼不可空白')";
+    echo "</script>";
+}
+elseif($data[0] == "passwordnotsame") {
+    echo "<script language='JavaScript'>";
+    echo "alert('密碼確認與設定密碼不一致')";
+    echo "</script>";
+}
+elseif($data[0] == "sernameused") {
+    echo "<script language='JavaScript'>";
+    echo "alert('此帳號已被使用')";
+    echo "</script>";
+}
+elseif($data[0] == "registrationsuccess") {
+    echo "<script language='JavaScript'>";
+    echo "alert('加入會員成功! 系統將自動跳轉至登入頁');location.href='../login/login';";
+    echo "</script>";
+}
+
+?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

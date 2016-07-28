@@ -9,20 +9,14 @@ class registration_con extends Controller{
       $sUserPasswordcheck = $_POST["txtPasswordcheck"];
       
       if (trim($sUserName) == "") {
-        echo "<script language='JavaScript'>";
-        echo "alert('帳號不可空白')";
-        echo "</script>";
+        $data[0] = "usernameempty" ;
       }
       else if (trim($sUserPassword) == "") {
-        echo "<script language='JavaScript'>";
-        echo "alert('密碼不可空白')";
-        echo "</script>";
+        $data[0] = "passwordempty" ;
       }
       else {
         if($sUserPasswordcheck != $sUserPassword) {
-          echo "<script language='JavaScript'>";
-          echo "alert('密碼確認與設定密碼不一致')";
-          echo "</script>";
+          $data[0] = "passwordnotsame" ;
         }
         else {
           
@@ -30,20 +24,16 @@ class registration_con extends Controller{
           $checknum = $member->registration_check($sUserName);
           
           if($checknum == 1) {
-            echo "<script language='JavaScript'>";
-            echo "alert('此帳號已被使用')";
-            echo "</script>";
+            $data[0] = "sernameused" ;
           }
           else {
             $member->registration_write($sUserName,$sUserPassword);
-            echo "<script language='JavaScript'>";
-            echo "alert('加入會員成功! 系統將自動跳轉至登入頁');location.href='../login/login';";
-            echo "</script>";
+            $data[0] = "registrationsuccess" ;
           }
         }
       }
     }
-  $this->view("registration");
+  $this->view("registration",$data);
   }
     
 }

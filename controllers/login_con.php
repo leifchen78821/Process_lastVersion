@@ -14,9 +14,7 @@ class login_con extends Controller{
             $check = $member->login($sUserName,$sUserPassword);
             
             if($check != 1) {
-                echo "<script language='JavaScript'>";
-                echo "alert('帳號或密碼輸入有誤');";
-                echo "</script>";
+                $data[0] = "errorin" ;
             }
             else {
                 header("Location: ../connect4site/connect4site");
@@ -28,7 +26,7 @@ class login_con extends Controller{
         	exit();
         }
 
-        $this->view("login");
+        $this->view("login",$data);
     }
     
 }

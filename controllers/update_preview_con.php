@@ -5,9 +5,7 @@ class update_preview_con extends Controller{
     function update_preview() {
 
 		if ($_COOKIE["userName"] == "Guest") {
-			echo "<script language='JavaScript'>";
-			echo "alert('你不應該來這呦!!!');location.href='../index/index';";
-			echo "</script>";
+			$data[0] = "errorin" ;
 		}
 		else {
 			session_start();
@@ -31,7 +29,7 @@ class update_preview_con extends Controller{
 				exit();
 			}
 		}
-		$this->view("update_preview");
+		$this->view("update_preview",$data);
 	}
 }
 ?>

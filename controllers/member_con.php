@@ -4,9 +4,7 @@ class member_con extends Controller{
     
     function member() {
 		if ($_COOKIE["userName"] == "Guest") {
-			echo "<script language='JavaScript'>";
-			echo "alert('你不應該來這呦!!!');location.href='index.php';";
-			echo "</script>";
+			$data[3] = "errorin" ;
 		}
 		else {
 			header("Content-Type:text/html; charset=utf-8");
@@ -33,9 +31,7 @@ class member_con extends Controller{
 			// require("../models/member_mod_deletearticle.php");
 			$member = $this->model("member_deletearticle_mod");
             $memberDataResult = $member->member_deletearticle($_GET["delete"]);
-			echo "<script language='JavaScript'>";
-			echo "alert('刪除成功!!!');location.href='../member/member?choose=2';";
-			echo "</script>";
+			$data[3] = "delete" ;
 			}
 		} 
 		$this->view("member",$data);

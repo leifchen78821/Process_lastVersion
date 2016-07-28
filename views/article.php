@@ -1,3 +1,12 @@
+<?php 
+
+if($data[3] == "notmember") {
+	echo "<script language='JavaScript'>";
+    echo "alert('您尚未登入無法留言呦')";
+    echo "</script>";
+}
+
+?>
 <html>
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

@@ -1,3 +1,16 @@
+<?php
+
+if($data[3] == "errorin") {
+    echo "<script language='JavaScript'>";
+    echo "alert('你不應該來這呦!!!');location.href='../connect4site/connect4site';";
+    echo "</script>";
+}
+elseif($data[3] == "delete") {
+    echo "<script language='JavaScript'>";
+    echo "alert('你不應該來這呦!!!');location.href='../connect4site/connect4site';";
+    echo "</script>";
+}
+?>
 <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

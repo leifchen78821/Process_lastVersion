@@ -5,9 +5,7 @@ class upload_preview_con extends Controller{
     function upload_preview() {
 
 		if ($_COOKIE["userName"] == "Guest") {
-			echo "<script language='JavaScript'>";
-			echo "alert('你不應該來這呦!!!');location.href='index.php';";
-			echo "</script>";
+			$data[0] = "errorin" ;
 		}
 		else {
 			session_start();
@@ -34,7 +32,7 @@ class upload_preview_con extends Controller{
 				}
 			}
 		}
-		$this->view("upload_preview");
+		$this->view("upload_preview",$data);
 	}
 }
 ?>

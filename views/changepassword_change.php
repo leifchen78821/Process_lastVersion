@@ -1,3 +1,23 @@
+<?php
+
+if($data[0] == "passwordempty") {
+  echo "<script language='JavaScript'>";
+	echo "alert('密碼不可空白')";
+  echo "</script>";
+}
+elseif($data[0] == "passwordDifferent")  {
+  echo "<script language='JavaScript'>";
+	echo "alert('密碼確認與設定密碼不一致')";
+  echo "</script>";
+}
+
+elseif($data[0] == "passwordChangeSuccess")  {
+  echo "<script language='JavaScript'>";
+  echo "alert('密碼修改成功,請重新登入');location.href='../login/login';";
+  echo "</script>";
+}
+
+?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

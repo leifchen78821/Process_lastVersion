@@ -11,23 +11,17 @@ class changepassword_change_con extends Controller{
             $sUserPasswordcheck = $_POST["txtPasswordcheck"];
             
             if (trim($sUserPassword) == ""){
-                echo "<script language='JavaScript'>";
-              	echo "alert('密碼不可空白')";
-                echo "</script>";
+                $data[0] = "passwordempty" ;
              }
             else if($sUserPasswordcheck != $sUserPassword) {
-                echo "<script language='JavaScript'>";
-            	echo "alert('密碼確認與設定密碼不一致')";
-                echo "</script>";
+                $data[0] = "passwordDifferent" ;
             }
             else {
                 // require("../models/changepassword_mod_ch.php");
                 $changePassword = $this->model("changepassword_change_mod");
                 $changePassword->changepassword_change($_COOKIE["userName"],$sUserPassword);
                 setcookie("userName" , "Guest" , time()+7200 , "/");
-                echo "<script language='JavaScript'>";
-          	    echo "alert('密碼修改成功,請重新登入');location.href='../login/login';";
-                echo "</script>";
+                $data[0] = "passwordChangeSuccess" ;
             }
           
         }
@@ -37,7 +31,7 @@ class changepassword_change_con extends Controller{
         	header("Location: ../member/member?choose=1");
         	exit();
         }
-        $this->view("changepassword_change");
+        $this->view("changepassword_change",$data);
     }
 }
 ?>
