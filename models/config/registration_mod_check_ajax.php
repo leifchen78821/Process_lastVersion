@@ -4,7 +4,7 @@ $link = mysql_connect("localhost" , "root" , "") or die(mysql_error()) ;
 $result = mysql_query("set names utf8" , $link);
 mysql_selectdb("monographic",$link); 
 
-$Member = "select * from MemberProfile ;" ;
+$Member = "SELECT Name FROM MemberProfile ;" ;
 $result = mysql_query($Member, $link);
 $i = 0 ;
 while($row = mysql_fetch_assoc($result)) {

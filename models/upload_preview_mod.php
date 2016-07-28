@@ -1,5 +1,5 @@
 <?php
-require_once("databasecalling_mod.php");
+require_once("config/databasecalling_mod.php");
 
 class upload_preview_mod extends databasecalling_mod{
 
@@ -7,7 +7,7 @@ class upload_preview_mod extends databasecalling_mod{
         session_start();
         
         $NameArticleNumber = 1 ;
-        $Member = "select * from UploadFile where Name = '" . $Name . "' ;" ;
+        $Member = "SELECT * FROM UploadFile WHERE Name = '" . $Name . "' ;" ;
         $result = $this->databasecalling($Member) ;
         foreach ($result as $rows) {
             $NameArticleNumber++;

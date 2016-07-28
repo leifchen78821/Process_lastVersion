@@ -1,5 +1,5 @@
 <?php
-require_once("databasecalling_mod.php");
+require_once("config/databasecalling_mod.php");
 
 class upload_preview_send_mod extends databasecalling_mod{
     function upload_preview_send($Name,$state,$resultArticleNumGet,$title,$article,$image,$source,$address_X,$address_Y) {

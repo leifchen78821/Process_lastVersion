@@ -1,12 +1,12 @@
 <?php
-require_once("databasecalling_mod.php");
+require_once("config/databasecalling_mod.php");
 
 class registration_mod extends databasecalling_mod{
     function registration_check($sUserName) {
         
         $checknum = 0 ;
         
-        $commandText = "select mID from MemberProfile where Name = '" . $sUserName . "'";
+        $commandText = "SELECT mID FROM MemberProfile WHERE Name = '" . $sUserName . "'";
         $memberresult = $this->databasecalling($commandText) ;
         
         if($memberresult["mID"] != '') {

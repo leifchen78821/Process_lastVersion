@@ -35,8 +35,13 @@ class page_food_con extends Controller{
                 exit();
             }
         }
+        
+        $friendlistget = $this->model("friendlist_mod");
+        $friendlist = $friendlistget->friendlist();
+        
         $data[0] = $sUserName;
         $data[1] = $result ;
+        $data[2] = $friendlist;
         $this->view("page_food",$data);
     }
 }

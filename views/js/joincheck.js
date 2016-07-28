@@ -1,6 +1,6 @@
 function getData(val) {
 	// 將帳號即時帶入php 並連結資料庫進行比對 再將比對結果回傳
-    $.get("/_Feng_Chia_Web_EasyMVC/models/registration_mod_check_ajax.php?userName=" + val, 
+    $.get("/_Feng_Chia_Web_EasyMVC/models/config/registration_mod_check_ajax.php?userName=" + val, 
         function(data)
         {
 		  if(data == true)

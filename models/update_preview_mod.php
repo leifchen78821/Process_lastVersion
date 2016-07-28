@@ -1,5 +1,5 @@
 <?php
-require_once("databasecalling_mod.php");
+require_once("config/databasecalling_mod.php");
 
 class update_preview_mod extends databasecalling_mod{
 

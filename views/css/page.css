@@ -85,11 +85,12 @@ body {
     }
 
     ul.drop-down-menu {
-        border: #ccc 1px solid;
+        border: white 0px solid;
         /*display: inline-block;*/
         font-family:Microsoft JhengHei;
         font-size: 20px;
         padding: 0 10px;
+        background: -webkit-linear-gradient(white,#C1C3C6);
     }
 
     ul.drop-down-menu li {
@@ -174,3 +175,70 @@ body {
         height: 30px;
         width: 50%;
     }
+    
+#moveli {
+    font-size : 50px;
+    background: -webkit-linear-gradient(white,#C1C3C6);
+    text-align:center ;
+    position: absolute ;
+    width: 100px ;
+    height: 150px ;
+    left: -3%;
+    z-index: 300;
+    -webkit-transition: 2.5s ease-out ;
+}
+
+#moveli:hover {
+    font-size : 50px;
+    background: -webkit-linear-gradient(white,#C1C3C6);
+    text-align:center ;
+    position: absolute ;
+    width: 100px ;
+    height: 150px ;
+    left: -8%;
+    z-index: 300;
+    -webkit-transition: 0.6s ease-out ;
+}
+
+#moveli_pic {
+    position: absolute ;
+    top:30%;
+    right:2%;
+    width: 50%;
+}
+
+#move_01 {
+    left: -120%;
+    -webkit-transition: 1.6s ease-out ;
+    z-index: 290;
+}
+
+#move_02 {
+    left: -120%;
+    -webkit-transition: 1.3s ease-out ;
+    z-index: 280;
+}
+
+#move_03 {
+    left: -120%;
+    -webkit-transition: 1.0s ease-out ;
+    z-index: 270;
+}
+
+#moveli:hover #move_01 {
+    left: 110%;
+    -webkit-transition: 0.6s ease-out ;
+    z-index: 290;
+}
+
+#moveli:hover #move_02 {
+    left: 235%;
+    -webkit-transition: 1.0s ease-out ;
+    z-index: 280;
+}
+
+#moveli:hover #move_03 {
+    left: 380%;
+    -webkit-transition: 1.6s ease-out ;
+    z-index: 270;
+}

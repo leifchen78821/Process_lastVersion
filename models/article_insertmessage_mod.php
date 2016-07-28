@@ -1,5 +1,5 @@
 <?php
-require_once("databasecalling_mod.php");
+require_once("config/databasecalling_mod.php");
 
 class article_insertmessage_mod extends databasecalling_mod{
 
