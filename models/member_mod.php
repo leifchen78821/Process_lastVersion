@@ -10,7 +10,7 @@ class member_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member01 = "SELECT * FROM MemberProfile WHERE Name = :name ;" ;
+        $Member01 = "SELECT * FROM `MemberProfile` WHERE `Name` = :name ;" ;
         
         $prepare = $pdolink->prepare($Member01);
         $prepare->bindParam(':name',$name);
@@ -28,7 +28,7 @@ class member_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member02 = "SELECT * FROM UploadFile WHERE Name = :name order by Time desc ;" ;
+        $Member02 = "SELECT * FROM `UploadFile` WHERE `Name` = :name order by `Time` desc ;" ;
         
         $prepare = $pdolink->prepare($Member02);
         $prepare->bindParam(':name',$name);
@@ -46,7 +46,7 @@ class member_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member03 = "SELECT * FROM Message WHERE Name = :name order by Time desc ;" ;
+        $Member03 = "SELECT * FROM `Message` WHERE `Name` = :name order by `Time` desc ;" ;
         
         $prepare = $pdolink->prepare($Member03);
         $prepare->bindParam(':name',$_COOKIE["userName"]);
@@ -62,7 +62,7 @@ class member_mod {
             //  $Member03_2 = "SELECT * FROM UploadFile WHERE uID = '" . $message03[$i][1] . "' ;" ;
             // 	$result03_2 = $this->databasecalling($Member03_2) ;
         	
-        	$Member03_2 = "SELECT * FROM UploadFile WHERE uID = :message ;" ;
+        	$Member03_2 = "SELECT * FROM `UploadFile` WHERE `uID` = :message ;" ;
         
             $prepare = $pdolink->prepare($Member03_2);
             $prepare->bindParam(':message',$message03[$i][1]);
@@ -78,6 +78,15 @@ class member_mod {
         return $message03 ;
         
     }   
+    
+    function settingsession() {
+        session_start();
+		$_SESSION['change'] = 0 ; //確認修改文章是否進入過
+    }
+    function settingcookieuserName() {
+        $userName = $_COOKIE["userName"] ;
+        return $userName ;
+    }
     
 }
 

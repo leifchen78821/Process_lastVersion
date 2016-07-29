@@ -25,15 +25,15 @@ class update_preview_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $updateData = "UPDATE UploadFile SET 
-						Time = :time ,
-						MapSite = :source ,
-						Map_X = :address_X ,
-						Map_Y = :address_Y ,
-						ImageSite = :image ,
-						Title = :title ,
-						Article = :article
-						WHERE uID = :uID ";  
+        $updateData = "UPDATE `UploadFile` SET 
+						`Time` = :time ,
+						`MapSite` = :source ,
+						`Map_X` = :address_X ,
+						`Map_Y` = :address_Y ,
+						`ImageSite` = :image ,
+						`Title` = :title ,
+						`Article` = :article
+						WHERE `uID` = :uID ";  
         
         $prepare = $pdolink->prepare($updateData);
         $prepare->bindParam(':time',$time);

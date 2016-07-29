@@ -1,24 +1,25 @@
 <?php 
 
 class member_con extends Controller{
-    
     function member() {
-		if ($_COOKIE["userName"] == "Guest") {
+    	$member = $this->model("member_mod");
+    	$sUserName = $member->settingcookieuserName();
+    	
+		if ($sUserName == "Guest") {
 			$data[3] = "errorin" ;
 		}
 		else {
 			header("Content-Type:text/html; charset=utf-8");
-			session_start();
-			$_SESSION['change'] = 0 ; //確認修改文章是否進入過
-			$member = $this->model("member_mod");
+			$article = $this->model("article_mod");
+        	$article->settingsession();
 			
-            $memberDataResult = $member->memberData($_COOKIE["userName"]);
+            $memberDataResult = $member->memberData($sUserName);
             $data[0] = $memberDataResult;
 			
-			$memberArticleResult = $member->memberArticle($_COOKIE["userName"]);
+			$memberArticleResult = $member->memberArticle($sUserName);
             $data[1] = $memberArticleResult;
             
-            $memberMessageResult = $member->memberMessage($_COOKIE["userName"]);
+            $memberMessageResult = $member->memberMessage($sUserName);
             $data[2] = $memberMessageResult;
 			
 			if (isset($_POST["button_changePassword"]))

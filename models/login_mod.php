@@ -13,7 +13,7 @@ class login_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-       $commandText = "SELECT mID FROM MemberProfile WHERE Name = :sUserName AND Password = :sUserPassword ;";
+       $commandText = "SELECT `mID` FROM `MemberProfile` WHERE `Name` = :sUserName AND `Password` = :sUserPassword ;";
         
         $prepare = $pdolink->prepare($commandText);
         $prepare->bindParam(':sUserName',$sUserName);

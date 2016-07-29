@@ -13,7 +13,7 @@ class upload_preview_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member = "SELECT * FROM UploadFile WHERE Name = :Name ;" ;
+        $Member = "SELECT * FROM `UploadFile` WHERE `Name` = :Name ;" ;
         
         $prepare = $pdolink->prepare($Member);
         $prepare->bindParam(':Name',$Name);

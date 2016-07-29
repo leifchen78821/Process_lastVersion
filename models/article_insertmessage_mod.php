@@ -25,11 +25,11 @@ class article_insertmessage_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $insertMessage ="INSERT INTO Message (
-                            ArticleNumber,
-                            Name,
-                            Time,
-                            MessageSent) 
+        $insertMessage ="INSERT INTO `Message` (
+                            `ArticleNumber`,
+                            `Name`,
+                            `Time`,
+                            `MessageSent`) 
         			        VALUES ( 
             				:aID , 
             				:Name , 

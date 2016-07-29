@@ -12,9 +12,9 @@ class changepassword_change_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $updatePassword = "UPDATE MemberProfile SET 
-                                  Password = :sUserPassword
-        					       WHERE Name = :name "; 
+        $updatePassword = "UPDATE `MemberProfile` SET 
+                                  `Password` = :sUserPassword
+        					       WHERE `Name` = :name "; 
         
         $prepare = $pdolink->prepare($updatePassword);
         $prepare->bindParam(':sUserPassword',$sUserPassword);
@@ -22,6 +22,13 @@ class changepassword_change_mod {
         $prepare->execute();
         $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
         $pdo->closeConnection();
+    }
+    function settingcookie() {
+        setcookie("userName" , "Guest" , time()+7200 , "/");
+    }
+    function settingcookieuserName() {
+        $userName = $_COOKIE["userName"] ;
+        return $userName ;
     }
 }
 ?>

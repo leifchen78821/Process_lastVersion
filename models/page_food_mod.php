@@ -10,7 +10,7 @@ class page_food_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member = "SELECT * FROM UploadFile WHERE State = 'food' ORDER BY Time desc ;" ;
+        $Member = "SELECT * FROM `UploadFile` WHERE `State` = 'food' ORDER BY `Time` desc ;" ;
         
         $prepare = $pdolink->prepare($Member);
         $prepare->execute();
@@ -20,6 +20,21 @@ class page_food_mod {
         return $result ;
     }
     
+    function settingsession() {
+        session_start();
+        $_SESSION['state'] = "food";
+    }
+    
+    function settingmember() {
+        
+        if ($_COOKIE["userName"] == "Guest") {
+            $sUserName = "Guest";
+        }
+        else {
+            $sUserName = $_COOKIE["userName"] ;
+        }
+        return $sUserName ;
+    }
 }
 
 ?>

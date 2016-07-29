@@ -10,7 +10,7 @@ class page_dress_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member = "SELECT * FROM UploadFile WHERE State = 'dress' ORDER BY Time desc ;" ;
+        $Member = "SELECT * FROM `UploadFile` WHERE `State` = 'dress' ORDER BY `Time` desc ;" ;
         
         $prepare = $pdolink->prepare($Member);
         $prepare->execute();
@@ -18,6 +18,22 @@ class page_dress_mod {
         $pdo->closeConnection();
         
         return $result ;
+    }
+    
+    function settingsession() {
+        session_start();
+        $_SESSION['state'] = "dress";
+    }
+    
+    function settingmember() {
+        
+        if ($_COOKIE["userName"] == "Guest") {
+            $sUserName = "Guest";
+        }
+        else {
+            $sUserName = $_COOKIE["userName"] ;
+        }
+        return $sUserName ;
     }
     
 }

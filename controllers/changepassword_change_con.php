@@ -18,9 +18,11 @@ class changepassword_change_con extends Controller{
             }
             else {
                 // require("../models/changepassword_mod_ch.php");
+                
                 $changePassword = $this->model("changepassword_change_mod");
-                $changePassword->changepassword_change($_COOKIE["userName"],$sUserPassword);
-                setcookie("userName" , "Guest" , time()+7200 , "/");
+                $userName = $changePassword->settingcookieuserName();
+                $changePassword->changepassword_change($userName,$sUserPassword);
+                $changePassword->settingcookie();
                 $data[0] = "passwordChangeSuccess" ;
             }
           

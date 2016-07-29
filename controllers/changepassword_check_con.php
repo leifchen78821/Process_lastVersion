@@ -2,8 +2,11 @@
 class changepassword_check_con extends Controller{
     
     function changepassword_check() {
+
+        $member = $this->model("changepassword_check_mod");
+        $sUserNameC = $member->settingcookie();
         
-        if ($_COOKIE["userName"] == "Guest") {
+        if ($sUserNameC == "Guest") {
         	$data[0] = "errorin" ;
         }
         else {
@@ -13,7 +16,7 @@ class changepassword_check_con extends Controller{
                 $sUserName = $_POST["txtUserName"];
                 $sUserPassword = $_POST["txtPassword"];
                 
-                if($_COOKIE["userName"] != $sUserName) {
+                if($sUserNameC != $sUserName) {
                     $data[0] = "notYou" ;
                 }
                 else {

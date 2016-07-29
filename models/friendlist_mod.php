@@ -10,7 +10,7 @@ class friendlist_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $commandText = "SELECT Name FROM MemberProfile;";
+        $commandText = "SELECT `Name` FROM `MemberProfile`;";
         
         $prepare = $pdolink->prepare($commandText);
         $prepare->execute();

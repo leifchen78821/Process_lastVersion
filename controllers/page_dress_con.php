@@ -5,17 +5,13 @@ class page_dress_con extends Controller{
         // header("Content-Type:text/html; charset=utf-8");
         // require("../models/page_food_mod.php");
         
-        session_start();
-        $_SESSION['state'] = "dress";
-        
         $article = $this->model("page_dress_mod");
         $result = $article->page_dress();
+        $article->settingsession();
         
-        if ($_COOKIE["userName"] == "Guest") {
-            $sUserName = "訪客" ;
-        }
-        else {
-            $sUserName = $_COOKIE["userName"] ;
+        $sUserName = $article->settingmember();
+        if ($sUserName == "Guest") {
+            $sUserName = "訪客";
         }
         
         if (isset($_GET["logout"])) {
@@ -25,7 +21,7 @@ class page_dress_con extends Controller{
         }
         
         if (isset($_POST["IssuedArticle"])) {
-            if ($_COOKIE["userName"] == "Guest") {
+            if ($sUserName == "Guest") {
                 $data[2] = "notmember" ;
             }
             else {

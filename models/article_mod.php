@@ -10,7 +10,7 @@ class article_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Member = "SELECT * FROM UploadFile WHERE uID = :article ;" ;
+        $Member = "SELECT * FROM `UploadFile` WHERE `uID` = :article ;" ;
         
         $prepare = $pdolink->prepare($Member);
         $prepare->bindParam(':article',$article);
@@ -27,7 +27,7 @@ class article_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $Message = "SELECT * FROM Message WHERE ArticleNumber = :article order by Time desc ;" ;
+        $Message = "SELECT * FROM `Message` WHERE `ArticleNumber` = :article order by `Time` desc ;" ;
         
         $prepare = $pdolink->prepare($Message);
         $prepare->bindParam(':article',$article);
@@ -36,6 +36,25 @@ class article_mod {
         $pdo->closeConnection();
         
         return $result ;
+    }
+    
+    function settingcookie() {
+        setcookie("userName" , "Guest" , time()+7200 , "/");
+    }
+    
+    function settingsession() {
+        session_start();
+    }
+    
+    function settingmember() {
+        
+        if ($_COOKIE["userName"] == "Guest") {
+            $sUserName = "Guest";
+        }
+        else {
+            $sUserName = $_COOKIE["userName"] ;
+        }
+        return $sUserName ;
     }
 }
 

@@ -12,7 +12,7 @@ class registration_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $commandText = "SELECT mID FROM MemberProfile WHERE Name = :sUserName ;";
+        $commandText = "SELECT `mID` FROM `MemberProfile` WHERE `Name` = :sUserName ;";
         
         $prepare = $pdolink->prepare($commandText);
         $prepare->bindParam(':sUserName',$sUserName);
@@ -42,11 +42,11 @@ class registration_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $insertData ="INSERT INTO MemberProfile (
-                        Name,
-                        Password,
-                        Gender,
-                        PhoneNumber)  
+        $insertData ="INSERT INTO `MemberProfile` (
+                        `Name`,
+                        `Password`,
+                        `Gender`,
+                        `PhoneNumber`)  
                         VALUES ( 
                         :txtUserName , 
                         :txtPassword , 

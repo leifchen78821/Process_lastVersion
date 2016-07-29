@@ -5,17 +5,13 @@ class page_food_con extends Controller{
         // header("Content-Type:text/html; charset=utf-8");
         // require("../models/page_food_mod.php");
         
-        session_start();
-        $_SESSION['state'] = "food";
-        
         $article = $this->model("page_food_mod");
         $result = $article->page_food();
+        $article->settingsession();
         
-        if ($_COOKIE["userName"] == "Guest") {
-            $sUserName = "訪客" ;
-        }
-        else {
-            $sUserName = $_COOKIE["userName"] ;
+        $sUserName = $article->settingmember();
+        if ($sUserName == "Guest") {
+            $sUserName = "訪客";
         }
         
         if (isset($_GET["logout"])) {

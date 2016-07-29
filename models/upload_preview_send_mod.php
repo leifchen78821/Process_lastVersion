@@ -36,17 +36,17 @@ class upload_preview_send_mod {
         $pdo = new databasecalling_mod ;
         $pdolink = $pdo->startConnection() ;
         
-        $insertData ="INSERT INTO UploadFile (
-							Name,
-							State,
-							Time,
-							ArticleNumber,
-							Title,
-							Article,
-							ImageSite,
-							MapSite,
-							Map_X,
-							Map_Y) 
+        $insertData ="INSERT INTO `UploadFile` (
+							`Name`,
+							`State`,
+							`Time`,
+							`ArticleNumber`,
+							`Title`,
+							`Article`,
+							`ImageSite`,
+							`MapSite`,
+							`Map_X`,
+							`Map_Y`) 
 						VALUES ( 
 							:Name , 
 							:state , 

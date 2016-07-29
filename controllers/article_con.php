@@ -3,24 +3,22 @@
 class article_con extends Controller{
     
     function article() {
-        session_start();
-        
         $article = $this->model("article_mod");
+        $article->settingsession();
         $resultArticle = $article->article($_GET["ArticleID"]);
         // $rowArticle = mysql_fetch_assoc($resultArticle);
 
         $resultMessage = $article->message($_GET["ArticleID"]);
         // $rowMessage = mysql_fetch_assoc($resultMessage);
         
-        if ($_COOKIE["userName"] == "Guest") {
+        
+        $sUserName = $article->settingmember();
+        if ($sUserName == "Guest") {
             $sUserName = "訪客";
-        }
-        else {
-            $sUserName = $_COOKIE["userName"] ;
         }
         
         if (isset($_GET["logout"])) {
-            setcookie("userName" , "Guest" , time()+7200 , "/");
+            $article->settingcookie();
             header("Location: ../article/article?ArticleID=" . $_GET["ArticleID"]);
             exit();
         }
