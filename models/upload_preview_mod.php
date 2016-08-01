@@ -4,7 +4,7 @@
 class upload_preview_mod {
 
     function upload_preview($Name) {
-        session_start();
+        // session_start();
         
         $NameArticleNumber = 1 ;
         // $Member = "SELECT * FROM UploadFile WHERE Name = '" . $Name . "' ;" ;

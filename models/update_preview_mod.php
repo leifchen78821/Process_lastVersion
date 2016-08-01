@@ -49,5 +49,21 @@ class update_preview_mod {
         $pdo->closeConnection();
 		
 	}
+	
+	function sessionAricleGet() {
+        session_start();
+        $sessionAricle[0] = $_SESSION['uID'];
+        $sessionAricle[1] = $_SESSION['source'];
+        $sessionAricle[2] = $_SESSION['address_X'];
+        $sessionAricle[3] = $_SESSION['address_Y'];
+        $sessionAricle[4] = $_SESSION['image'];
+        $sessionAricle[5] = $_SESSION['title'];
+        $sessionAricle[6] = $_SESSION['article'];
+        return $sessionAricle ;
+        
+    }
+    function sessiondestroy() {
+        session_destroy();
+    }
 }
 ?>

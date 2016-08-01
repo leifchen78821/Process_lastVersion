@@ -39,28 +39,28 @@ if($data[0] == "errorin") {
 		</form>
 	</div>
 	<div id = "backnumber" style = "display:none;">
-		<textarea id = "address_X" name = "address_X"><?php echo $_SESSION['address_X'] ; ?></textarea>
-        <textarea id = "address_Y" name = "address_Y"><?php echo $_SESSION['address_Y'] ; ?></textarea>
+		<textarea id = "address_X" name = "address_X"><?php echo $data[1][2] ; ?></textarea>
+        <textarea id = "address_Y" name = "address_Y"><?php echo $data[1][3] ; ?></textarea>
 	</div>
 	<div id = "whiteback">
 	    <div id = "background" style = "margin: 3% auto ;">
 	        <div id = "title">
-	            <?php echo $_SESSION['title'] ; ?>
+	            <?php echo $data[1][5] ; ?>
 	        </div>
-	        <div><?php echo $_SESSION['test'] ; ?><br></div>
+	        <div><br></div>
 	        <div id = "image">
-	            <?php if($_SESSION['image'] != ""): ?>
-	            <img src="<?php echo '../views/upload/' . $_SESSION['image'] ?>">
+	            <?php if($data[1][4] != ""): ?>
+	            <img src="<?php echo '../views/upload/' . $data[1][4] ?>">
 	            <?php endif ?>
 	        </div>
 	        <div id = "article_inside">
-	            <?php echo $_SESSION['article'] ; ?>
+	            <?php echo $data[1][6] ; ?>
 	        </div>
 	        <div id = "map_address"><br><br><br>
 	        	<p class = "map_address_title">這地方在哪裡呢!!!?<br></p>
-	            <?php echo $_SESSION['source'] ; ?>
+	            <?php echo $data[1][1] ; ?>
 	        </div>
-        	<?php if($_SESSION['source'] != ""): ?>
+        	<?php if($data[1][1] != ""): ?>
             <div id="googleMap" style="width: 50%; height: 400px; margin: 0 5% 10% 5%;"></div>
             <?php endif ?>
 	    </div>
